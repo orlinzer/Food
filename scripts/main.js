@@ -20,9 +20,7 @@ function monthDiff(d1, d2) {
 
 function yearDiff(d1, d2) {
   var years;
-  years = (d2.getFullYear() - d1.getFullYear()) * 12;
-  years -= d1.getMonth();
-  years += d2.getMonth();
+  years = monthDiff(d1, d2) / 12;
   return years <= 0 ? 0 : years;
 }
 
@@ -98,13 +96,20 @@ function load () {
     var selectedDate = new Date(dateOfBirthInput.value);
     var now = new Date();
     var months = monthDiff(selectedDate, now);
-    ageInput.value = yearDiff(new Date(dateOfBirthInput.value), now);
-    agePreview.innerText = ageInput.value; // TODO: month and year
-    agePreview.innerText = (monthDiff(selectedDate, now) % 12) + " months";
+    ageInput.value = monthDiff(selectedDate, now) / 12;
+    agePreview.innerText = "Your age is: " + Math.floor(monthDiff(selectedDate, now) / 12) + " years and " + (monthDiff(selectedDate, now) % 12) + " months";
   }
   ageInput.oninput = (event) => {
     // TODO: change the dateOfBirth
-    agePreview.innerText = ageInput.value; // TODO: month and year
+    var now = new Date();
+    var selectedDate = new Date(now.getTime() - (ageInput.value * 356 * 24 * 3600 * 1000));
+
+    var day = ("0" + selectedDate.getDate()).slice(-2);
+    var month = ("0" + (selectedDate.getMonth() + 1)).slice(-2);
+
+    var today = selectedDate.getFullYear()+"-"+(month)+"-"+(day) ;
+    dateOfBirthInput.value = today;
+    agePreview.innerText = "Your age is: " + Math.floor(monthDiff(selectedDate, now) / 12) + " years and " + (monthDiff(selectedDate, now) % 12) + " months";
   }
 
   genderMaleInput.oninput = (event) => {
