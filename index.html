@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food</title>
+    <link rel="stylesheet" href="styles/main.css" />
+    <script type="module" src="scripts/main.js"></script>
+  </head>
+  <body>
+    <form action="" method="get">
+      <div id="date-of-birth-div">
+        <label for="date-of-birth-input">Date of birth:</label>
+        <input
+          type="date"
+          id="date-of-birth-input"
+          name="date-of-birth"
+          value="1991-12-25"
+          autocomplete="bday"
+        />
+      </div>
+      <div id="age-div">
+        <label for="age-input">Age</label>
+        <input
+          type="range"
+          id="age-input"
+          name="age"
+          value="21"
+          min="0"
+          max="120"
+          step="0.01"
+          autocomplete="age"
+        />
+        <p id="age-preview">21</p>
+      </div>
+      <div id="weight-div">
+        <label for="weight-input">Weight:</label>
+        <input
+          type="range"
+          id="weight-input"
+          name="weight"
+          value="170"
+          min="1"
+          max="300"
+          step="0.1"
+          autocomplete="weight"
+        />
+        <p id="weight-preview">70</p>
+      </div>
+      <div id="height-div">
+        <label for="height-input">Height:</label>
+        <input
+          type="range"
+          id="height-input"
+          name="height"
+          value="170"
+          min="20"
+          max="300"
+          step="1"
+          autocomplete="height"
+        />
+        <p id="height-preview">170</p>
+      </div>
+      <div id="gender-div">
+        <label for="gender-autocomplete">Gender:</label>
+        <input
+          type="hidden"
+          autocomplete="sex"
+          id="gender-autocomplete-input"
+        />
+        <label for="gender-female-input">Female</label>
+        <input
+          type="radio"
+          id="gender-female-input"
+          name="gender"
+          value="female"
+        />
+        <label for="gender-male-input">Male</label>
+        <input type="radio" id="gender-male-input" name="gender" value="male" />
+        <label for="gender-other-input">Other</label>
+        <input
+          type="radio"
+          id="gender-other-input"
+          name="gender"
+          value="other"
+          checked
+        />
+      </div>
+      <div id="exercise-div">
+        <label for="exercise">Exercise:</label>
+        <input
+          type="hidden"
+          autocomplete="exercise"
+          id="exercise-autocomplete-input"
+        />
+        <label for="exercise-no-active-input">No active</label>
+        <input
+          type="radio"
+          id="exercise-no-active-input"
+          name="exercise"
+          value="exercise-no-active"
+          checked
+        />
+        <label for="exercise-some-active-input">Some active</label>
+        <input
+          type="radio"
+          id="exercise-some-active-input"
+          name="exercise"
+          value="exercise-some-active"
+        />
+        <label for="exercise-normal-active-input">Normal active</label>
+        <input
+          type="radio"
+          id="exercise-normal-active-input"
+          name="exercise"
+          value="exercise-normal-active"
+        />
+        <label for="exercise-very-active-input">Very active</label>
+        <input
+          type="radio"
+          id="exercise-very-active-input"
+          name="exercise"
+          value="exercise-very-active"
+        />
+      </div>
+      <div id="calories-div">
+        <label for="calories-input">Calories:</label>
+        <input
+          type="range"
+          id="calories-input"
+          name="calories"
+          value="1700"
+          min="300"
+          max="20000"
+          step="1"
+          autocomplete="calories"
+        />
+        <p id="calories-preview">1700</p>
+      </div>
+      <input type="submit" />
+    </form>
+  </body>
+</html>
