@@ -10,6 +10,27 @@ for (var entry of entries) {
 }
 console.log(params);
 
+function monthDiff(d1, d2) {
+  var months;
+  months = (d2.getFullYear() - d1.getFullYear()) * 12;
+  months -= d1.getMonth();
+  months += d2.getMonth();
+  return months <= 0 ? 0 : months;
+}
+
+function yearDiff(d1, d2) {
+  var years;
+  years = (d2.getFullYear() - d1.getFullYear()) * 12;
+  years -= d1.getMonth();
+  years += d2.getMonth();
+  return years <= 0 ? 0 : years;
+}
+
+function timeDiff(d1, d2) {
+  return (((d2.getTime()) - d1.getTime()) / (3600 * 1000 * 24 * 365));
+
+}
+
 // // var url = window.location.pathname;
 // var url =  window.location.search;
 // console.log(url);
@@ -74,8 +95,12 @@ function load () {
 
 
   dateOfBirthInput.oninput = (event) => {
-    ageInput.value = (((new Date().getTime()) - (new Date(dateOfBirthInput.value)).getTime()) / (3600 * 1000 * 24 * 365));
+    var selectedDate = new Date(dateOfBirthInput.value);
+    var now = new Date();
+    var months = monthDiff(selectedDate, now);
+    ageInput.value = yearDiff(new Date(dateOfBirthInput.value), now);
     agePreview.innerText = ageInput.value; // TODO: month and year
+    agePreview.innerText = (monthDiff(selectedDate, now) % 12) + " months";
   }
   ageInput.oninput = (event) => {
     // TODO: change the dateOfBirth
