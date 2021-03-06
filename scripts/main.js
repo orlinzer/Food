@@ -1,6 +1,11 @@
 import calculate from './calculate.js';
 import { calculateCalories } from './calculate.js';
-console.log(calculateCalories(29, 'male', 70, 1.71, 1.27));
+
+// // var url = window.location.pathname;
+// var url =  window.location.search;
+// console.log(url);
+// console.log(url.split('?')[1]);
+// console.log(url.split('?')[1].split('&'));
 
 const urlParams = new URLSearchParams(window.location.search);
 const entries = urlParams.entries();
@@ -9,6 +14,9 @@ for (var entry of entries) {
   params[entry[0]] = entry[1];
 }
 console.log(params);
+var calculated = calculate(params);
+console.log(calculated);
+
 
 function monthDiff(d1, d2) {
   var months;
@@ -29,15 +37,9 @@ function timeDiff(d1, d2) {
 
 }
 
-// // var url = window.location.pathname;
-// var url =  window.location.search;
-// console.log(url);
-// console.log(url.split('?')[1]);
-// console.log(url.split('?')[1].split('&'));
-
 
 var ageInput;
-var agePreview;
+var ageOutput;
 var age = 29;
 
 var genderMaleInput;
@@ -47,7 +49,9 @@ var gender = 'other';
 
 var dateOfBirthInput;
 var weightInput;
+var weightOutput;
 var heightInput;
+var heightOutput;
 var genderAutocompleteInput;
 var exerciseNoActiveInput;
 var exerciseSomeActiveInput;
@@ -55,18 +59,21 @@ var exerciseNormalActiveInput;
 var exerciseVeryActiveInput;
 var exerciseAutocompleteInput;
 var caloriesInput;
+var caloriesOutput;
 
 
 
 function load () {
   ageInput = document.getElementById('age-input');
-  agePreview = document.getElementById('age-preview');
+  ageOutput = document.getElementById('age-output');
   genderMaleInput = document.getElementById('gender-male-input');
   genderFemaleInput = document.getElementById('gender-female-input');
   genderOtherInput = document.getElementById('gender-other-input');
   dateOfBirthInput = document.getElementById('date-of-birth-input');
   weightInput = document.getElementById('weight-input');
+  weightOutput = document.getElementById('weight-output');
   heightInput = document.getElementById('height-input');
+  heightOutput = document.getElementById('height-output');
   genderAutocompleteInput = document.getElementById('gender-autocomplete-input');
   exerciseAutocompleteInput = document.getElementById('exercise-autocomplete-input');
   exerciseNoActiveInput = document.getElementById('exercise-no-active-input');
@@ -74,11 +81,27 @@ function load () {
   exerciseNormalActiveInput = document.getElementById('exercise-Normal-active-input');
   exerciseVeryActiveInput = document.getElementById('exercise-Very-active-input');
   caloriesInput = document.getElementById('calories-input');
+  caloriesOutput = document.getElementById('calories-output');
+  var legends = document.getElementsByTagName('legend');
+
+  for (var i = 0; legends.length; i++) {
+    let element = legends[i];
+    if (typeof(element) == 'undefined') // XXX
+    element.addEventListener('click', (event) => {
+      let elementClass = element.parentElement.classList;
+      if (elementClass.contains('collapsed')) {
+        element.parentElement.classList.remove('collapsed');
+      } else {
+        element.parentElement.classList.add('collapsed');
+      }
+    });
+  }
+
 
   if (params) {
     if (params.age) {
       ageInput.value = params.age;
-      agePreview.innerText = params.age;
+      ageOutput.innerText = params.age;
     }
     if (params.gender == 'female') {
       genderFemaleInput.checked = true;
@@ -91,25 +114,35 @@ function load () {
     console.log(result);
   }
 
-
   dateOfBirthInput.oninput = (event) => {
     var selectedDate = new Date(dateOfBirthInput.value);
     var now = new Date();
     var months = monthDiff(selectedDate, now);
     ageInput.value = monthDiff(selectedDate, now) / 12;
-    agePreview.innerText = "Your age is: " + Math.floor(monthDiff(selectedDate, now) / 12) + " years and " + (monthDiff(selectedDate, now) % 12) + " months";
+    ageOutput.innerText = "Your age is: " + Math.floor(monthDiff(selectedDate, now) / 12) + " years and " + (monthDiff(selectedDate, now) % 12) + " months";
   }
   ageInput.oninput = (event) => {
-    // TODO: change the dateOfBirth
     var now = new Date();
     var selectedDate = new Date(now.getTime() - (ageInput.value * 356 * 24 * 3600 * 1000));
 
     var day = ("0" + selectedDate.getDate()).slice(-2);
     var month = ("0" + (selectedDate.getMonth() + 1)).slice(-2);
 
-    var today = selectedDate.getFullYear()+"-"+(month)+"-"+(day) ;
+    var today = selectedDate.getFullYear() + "-" + (month) + "-" + (day);
     dateOfBirthInput.value = today;
-    agePreview.innerText = "Your age is: " + Math.floor(monthDiff(selectedDate, now) / 12) + " years and " + (monthDiff(selectedDate, now) % 12) + " months";
+    ageOutput.innerText = "Your age is: " + Math.floor(monthDiff(selectedDate, now) / 12) + " years and " + (monthDiff(selectedDate, now) % 12) + " months";
+  }
+
+  weightInput.oninput = (event) => {
+    weightOutput.innerText = weightInput.value + " Kilograms"
+  }
+
+  heightInput.oninput = (event) => {
+    heightOutput.innerText = heightInput.value + " Centimeters"
+  }
+
+  caloriesInput.oninput = (event) => {
+    caloriesOutput.innerText = caloriesInput.value + " Calories"
   }
 
   genderMaleInput.oninput = (event) => {

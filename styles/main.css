@@ -36,6 +36,22 @@ fieldset {
   border-radius: 0.5em;
 }
 
+fieldset.collapsed {
+  height: 0;
+}
+
+fieldset.collapsed * {
+  display: none;
+}
+
+fieldset.collapsed > legend {
+  display: inline;
+}
+
+legend {
+  cursor: pointer;
+}
+
 input[type="range"] {
   width: 100%;
 }

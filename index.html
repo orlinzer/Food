@@ -10,111 +10,131 @@
   </head>
   <body>
     <form action="" method="get">
-      <fieldset id="age-field">
-        <legend>Age:</legend>
-        <div id="date-of-birth-div">
-          <label for="date-of-birth-input">Date of birth:</label>
+      <fieldset id="body-fieldset">
+        <legend id="body-legend">Body</legend>
+        <fieldset id="age-field">
+          <legend id="age-legend">Age</legend>
+          <div id="date-of-birth-div">
+            <label for="date-of-birth-input">Date of birth:</label>
+            <input
+              type="date"
+              id="date-of-birth-input"
+              name="date-of-birth"
+              value="1991-12-25"
+              autocomplete="bday"
+            />
+          </div>
+          <div id="age-div">
+            <label for="age-input">Age</label>
+            <input
+              type="range"
+              id="age-input"
+              name="age"
+              value="21"
+              min="0"
+              max="120"
+              step="0.01"
+              autocomplete="age"
+            />
+          </div>
+          <output
+            id="age-output"
+            name="age-output"
+            for="date-of-birth-input age-input"
+            >Your age is: 21 years and 0 months</output
+          >
+        </fieldset>
+
+        <fieldset id="weight-field">
+          <legend>Weight</legend>
+          <div id="weight-div">
+            <label for="weight-input">Weight:</label>
+            <input
+              type="range"
+              id="weight-input"
+              name="weight"
+              value="170"
+              min="1"
+              max="300"
+              step="0.1"
+              autocomplete="weight"
+            />
+            <output id="weight-output">70 Kilograms</output>
+          </div>
+        </fieldset>
+
+        <fieldset id="height-field">
+          <legend>Height</legend>
+          <div id="height-div">
+            <label for="height-input">Height:</label>
+            <input
+              type="range"
+              id="height-input"
+              name="height"
+              value="170"
+              min="20"
+              max="300"
+              step="1"
+              autocomplete="height"
+            />
+            <output id="height-output">170 Centimeters</output>
+          </div>
+        </fieldset>
+
+        <fieldset id="gender-field">
+          <legend>Gender</legend>
+          <div id="gender-div">
+            <label for="gender-autocomplete">Gender:</label>
+            <input
+              type="hidden"
+              autocomplete="sex"
+              id="gender-autocomplete-input"
+            />
+            <label for="gender-female-input">Female</label>
+            <input
+              type="radio"
+              id="gender-female-input"
+              name="gender"
+              value="female"
+            />
+            <label for="gender-male-input">Male</label>
+            <input
+              type="radio"
+              id="gender-male-input"
+              name="gender"
+              value="male"
+            />
+            <label for="gender-other-input">Other</label>
+            <input
+              type="radio"
+              id="gender-other-input"
+              name="gender"
+              value="other"
+              checked
+            />
+          </div>
+        </fieldset>
+
+        <fieldset id="pregnant-field">
+          <legend>Pregnant</legend>
+          <label for="pregnant-input">Pregnant</label>
           <input
-            type="date"
-            id="date-of-birth-input"
-            name="date-of-birth"
-            value="1991-12-25"
-            autocomplete="bday"
+            type="checkbox"
+            id="pregnant-input"
+            name="pregnant"
+            unchecked
           />
-        </div>
-        <div id="age-div">
-          <label for="age-input">Age</label>
-          <input
-            type="range"
-            id="age-input"
-            name="age"
-            value="21"
-            min="0"
-            max="120"
-            step="0.01"
-            autocomplete="age"
-          />
-        </div>
-        <output
-          id="age-preview"
-          name="age-output"
-          for="date-of-birth-input age-input"
-          >Your age is: 21 years and 0 months</output
-        >
+        </fieldset>
+
+        <fieldset id="nursing-field">
+          <legend>Nursing</legend>
+          <label for="nursing-input">Nursing</label>
+          <input type="checkbox" id="nursing-input" name="nursing" unchecked />
+        </fieldset>
       </fieldset>
 
-      <fieldset id="weight-field">
-        <legend>Weight:</legend>
-        <div id="weight-div">
-          <label for="weight-input">Weight:</label>
-          <input
-            type="range"
-            id="weight-input"
-            name="weight"
-            value="170"
-            min="1"
-            max="300"
-            step="0.1"
-            autocomplete="weight"
-          />
-          <p id="weight-preview">70</p>
-        </div>
-      </fieldset>
-
-      <fieldset id="height-field">
-        <legend>Height:</legend>
-        <div id="height-div">
-          <label for="height-input">Height:</label>
-          <input
-            type="range"
-            id="height-input"
-            name="height"
-            value="170"
-            min="20"
-            max="300"
-            step="1"
-            autocomplete="height"
-          />
-          <p id="height-preview">170</p>
-        </div>
-      </fieldset>
-
-      <fieldset id="gender-field">
-        <legend>Gender:</legend>
-        <div id="gender-div">
-          <label for="gender-autocomplete">Gender:</label>
-          <input
-            type="hidden"
-            autocomplete="sex"
-            id="gender-autocomplete-input"
-          />
-          <label for="gender-female-input">Female</label>
-          <input
-            type="radio"
-            id="gender-female-input"
-            name="gender"
-            value="female"
-          />
-          <label for="gender-male-input">Male</label>
-          <input
-            type="radio"
-            id="gender-male-input"
-            name="gender"
-            value="male"
-          />
-          <label for="gender-other-input">Other</label>
-          <input
-            type="radio"
-            id="gender-other-input"
-            name="gender"
-            value="other"
-            checked
-          />
-        </div>
-      </fieldset>
-
-      <fieldset id="exercise-field">
-        <legend>Exercise:</legend>
+      <fieldset id="activity-field">
+        <legend id="activity-legend">Activity</legend>
         <div id="exercise-div">
           <label for="exercise">Exercise:</label>
           <input
@@ -152,7 +172,18 @@
             value="exercise-very-active"
           />
         </div>
+      </fieldset>
+
+      <fieldset id="calories-field">
+        <legend>Calories</legend>
         <div id="calories-div">
+          <label for="calories-calculate">Calculate Calories:</label>
+          <input
+            type="checkbox"
+            name="calories-calculate"
+            id="calories-calculate"
+            checked
+          />
           <label for="calories-input">Calories:</label>
           <input
             type="range"
@@ -164,8 +195,1580 @@
             step="1"
             autocomplete="calories"
           />
-          <p id="calories-preview">1700</p>
+          <output id="calories-output">1700 Calories</output>
         </div>
+      </fieldset>
+
+      <fieldset id="main-food-groups">
+        <legend id="main-food-groups-legend">Main Food Groups</legend>
+        <fieldset id="water-fieldset">
+          <legend id="water-legend">Water</legend>
+          <div id="water-div">
+            <label for="water-calculate">Calculate Water:</label>
+            <input
+              type="checkbox"
+              name="water-calculate"
+              id="water-calculate"
+              checked
+            />
+            <label id="water-label">Water:</label>
+            <input id="water-input" type="number" placeholder="2.5" />
+            <input
+              type="range"
+              id="water-input"
+              name="water"
+              value="1700"
+              min="0.5"
+              max="6.0"
+              step="0.1"
+              autocomplete="water"
+            />
+            <meter
+              id="water-meter"
+              min="0.5"
+              max="6.0"
+              low="1"
+              high="4.0"
+              optimum="2.5"
+              value="2.5"
+            >
+              2.5 Liters
+            </meter>
+            <output id="water-output">2.5 Liters</output>
+          </div>
+        </fieldset>
+
+        <fieldset id="carbohydrates-fieldset">
+          <legend id="carbohydrates-legend">Carbohydrates</legend>
+          <div id="carbohydrates-div">
+            <label for="carbohydrates-calculate"
+              >Calculate Carbohydrates:</label
+            >
+            <input
+              type="checkbox"
+              name="carbohydrates-calculate"
+              id="carbohydrates-calculate"
+              checked
+            />
+            <label id="carbohydrates-label">Carbohydrates:</label>
+            <input id="carbohydrates-input" type="number" placeholder="2.5" />
+            <input
+              type="range"
+              id="carbohydrates-input"
+              name="carbohydrates"
+              value="1700"
+              min="0.5"
+              max="6.0"
+              step="0.1"
+              autocomplete="carbohydrates"
+            />
+            <meter
+              id="carbohydrates-meter"
+              min="0.5"
+              max="6.0"
+              low="1"
+              high="4.0"
+              optimum="2.5"
+              value="2.5"
+            >
+              2.5 Liters
+            </meter>
+            <output id="carbohydrates-output">2.5 Liters</output>
+          </div>
+        </fieldset>
+
+        <fieldset id="proteins-fieldset">
+          <legend id="proteins-legend">Proteins</legend>
+          <div id="proteins-div">
+            <label for="proteins-calculate">Calculate Proteins:</label>
+            <input
+              type="checkbox"
+              name="proteins-calculate"
+              id="proteins-calculate"
+              checked
+            />
+            <label id="proteins-label">Proteins:</label>
+            <input id="proteins-input" type="number" placeholder="2.5" />
+            <input
+              type="range"
+              id="proteins-input"
+              name="proteins"
+              value="1700"
+              min="0.5"
+              max="6.0"
+              step="0.1"
+              autocomplete="proteins"
+            />
+            <meter
+              id="proteins-meter"
+              min="0.5"
+              max="6.0"
+              low="1"
+              high="4.0"
+              optimum="2.5"
+              value="2.5"
+            >
+              2.5 Liters
+            </meter>
+            <output id="proteins-output">2.5 Liters</output>
+          </div>
+        </fieldset>
+
+        <fieldset id="fats-fieldset">
+          <legend id="fats-legend">Fats</legend>
+          <div id="fats-div">
+            <label for="fats-calculate">Calculate Fats:</label>
+            <input
+              type="checkbox"
+              name="fats-calculate"
+              id="fats-calculate"
+              checked
+            />
+            <label id="fats-label">Fats:</label>
+            <input id="fats-input" type="number" placeholder="2.5" />
+            <input
+              type="range"
+              id="fats-input"
+              name="fats"
+              value="1700"
+              min="0.5"
+              max="6.0"
+              step="0.1"
+              autocomplete="fats"
+            />
+            <meter
+              id="fats-meter"
+              min="0.5"
+              max="6.0"
+              low="1"
+              high="4.0"
+              optimum="2.5"
+              value="2.5"
+            >
+              2.5 Liters
+            </meter>
+            <output id="fats-output">2.5 Liters</output>
+          </div>
+        </fieldset>
+
+        <fieldset id="fibers-fieldset">
+          <legend id="fibers-legend">Fibers</legend>
+          <div id="fibers-div">
+            <label for="fibers-calculate">Calculate Fibers:</label>
+            <input
+              type="checkbox"
+              name="fibers-calculate"
+              id="fibers-calculate"
+              checked
+            />
+            <label id="fibers-label">Fibers:</label>
+            <input id="fibers-input" type="number" placeholder="2.5" />
+            <input
+              type="range"
+              id="fibers-input"
+              name="fibers"
+              value="1700"
+              min="0.5"
+              max="6.0"
+              step="0.1"
+              autocomplete="fibers"
+            />
+            <meter
+              id="fibers-meter"
+              min="0.5"
+              max="6.0"
+              low="1"
+              high="4.0"
+              optimum="2.5"
+              value="2.5"
+            >
+              2.5 Liters
+            </meter>
+            <output id="fibers-output">2.5 Liters</output>
+          </div>
+        </fieldset>
+
+        <fieldset id="vitamins-fieldset">
+          <legend id="vitamins-legend">Vitamins</legend>
+          <fieldset id="vitamin-a-fieldset">
+            <legend id="vitamin-a-legend">Vitamin A</legend>
+            <div id="vitamin-a-div">
+              <label for="vitamin-a-calculate">Calculate Vitamin A:</label>
+              <input
+                type="checkbox"
+                name="vitamin-a-calculate"
+                id="vitamin-a-calculate"
+                checked
+              />
+              <label id="vitamin-a-label">Vitamin A:</label>
+              <input id="vitamin-a-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="vitamin-a-input"
+                name="vitamin-a"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="vitamin-a"
+              />
+              <meter
+                id="vitamin-a-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="vitamin-a-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="vitamin-d-fieldset">
+            <legend id="vitamin-d-legend">Vitamin D</legend>
+            <div id="vitamin-d-div">
+              <label for="vitamin-d-calculate">Calculate Vitamin D:</label>
+              <input
+                type="checkbox"
+                name="vitamin-d-calculate"
+                id="vitamin-d-calculate"
+                checked
+              />
+              <label id="vitamin-d-label">Vitamin D:</label>
+              <input id="vitamin-d-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="vitamin-d-input"
+                name="vitamin-d"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="vitamin-d"
+              />
+              <meter
+                id="vitamin-d-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="vitamin-d-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="vitamin-e-fieldset">
+            <legend id="vitamin-e-legend">Vitamin E</legend>
+            <div id="vitamin-e-div">
+              <label for="vitamin-e-calculate">Calculate Vitamin E:</label>
+              <input
+                type="checkbox"
+                name="vitamin-e-calculate"
+                id="vitamin-e-calculate"
+                checked
+              />
+              <label id="vitamin-e-label">Vitamin E:</label>
+              <input id="vitamin-e-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="vitamin-e-input"
+                name="vitamin-e"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="vitamin-e"
+              />
+              <meter
+                id="vitamin-e-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="vitamin-e-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="vitamin-k-fieldset">
+            <legend id="vitamin-k-legend">Vitamin K</legend>
+            <div id="vitamin-k-div">
+              <label for="vitamin-k-calculate">Calculate Vitamin K:</label>
+              <input
+                type="checkbox"
+                name="vitamin-k-calculate"
+                id="vitamin-k-calculate"
+                checked
+              />
+              <label id="vitamin-k-label">Vitamin K:</label>
+              <input id="vitamin-k-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="vitamin-k-input"
+                name="vitamin-k"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="vitamin-k"
+              />
+              <meter
+                id="vitamin-k-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="vitamin-k-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="vitamin-c-fieldset">
+            <legend id="vitamin-c-legend">Vitamin C</legend>
+            <div id="vitamin-c-div">
+              <label for="vitamin-c-calculate">Calculate Vitamin C:</label>
+              <input
+                type="checkbox"
+                name="vitamin-c-calculate"
+                id="vitamin-c-calculate"
+                checked
+              />
+              <label id="vitamin-c-label">Vitamin C:</label>
+              <input id="vitamin-c-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="vitamin-c-input"
+                name="vitamin-c"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="vitamin-c"
+              />
+              <meter
+                id="vitamin-c-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="vitamin-c-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="vitamin-b1-fieldset">
+            <legend id="vitamin-b1-legend">Vitamin B1</legend>
+            <div id="vitamin-b1-div">
+              <label for="vitamin-b1-calculate">Calculate Vitamin B1:</label>
+              <input
+                type="checkbox"
+                name="vitamin-b1-calculate"
+                id="vitamin-b1-calculate"
+                checked
+              />
+              <label id="vitamin-b1-label">Vitamin B1:</label>
+              <input id="vitamin-b1-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="vitamin-b1-input"
+                name="vitamin-b1"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="vitamin-b1"
+              />
+              <meter
+                id="vitamin-b1-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="vitamin-b1-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="vitamin-b2-fieldset">
+            <legend id="vitamin-b2-legend">Vitamin B2</legend>
+            <div id="vitamin-b2-div">
+              <label for="vitamin-b2-calculate">Calculate Vitamin B2:</label>
+              <input
+                type="checkbox"
+                name="vitamin-b2-calculate"
+                id="vitamin-b2-calculate"
+                checked
+              />
+              <label id="vitamin-b2-label">Vitamin B2:</label>
+              <input id="vitamin-b2-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="vitamin-b2-input"
+                name="vitamin-b2"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="vitamin-b2"
+              />
+              <meter
+                id="vitamin-b2-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="vitamin-b2-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="vitamin-b3-fieldset">
+            <legend id="vitamin-b3-legend">Vitamin B3</legend>
+            <div id="vitamin-b3-div">
+              <label for="vitamin-b3-calculate">Calculate Vitamin B3:</label>
+              <input
+                type="checkbox"
+                name="vitamin-b3-calculate"
+                id="vitamin-b3-calculate"
+                checked
+              />
+              <label id="vitamin-b3-label">Vitamin B3:</label>
+              <input id="vitamin-b3-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="vitamin-b3-input"
+                name="vitamin-b3"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="vitamin-b3"
+              />
+              <meter
+                id="vitamin-b3-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="vitamin-b3-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="vitamin-b6-fieldset">
+            <legend id="vitamin-b6-legend">Vitamin B6</legend>
+            <div id="vitamin-b6-div">
+              <label for="vitamin-b6-calculate">Calculate Vitamin B6:</label>
+              <input
+                type="checkbox"
+                name="vitamin-b6-calculate"
+                id="vitamin-b6-calculate"
+                checked
+              />
+              <label id="vitamin-b6-label">Vitamin B6:</label>
+              <input id="vitamin-b6-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="vitamin-b6-input"
+                name="vitamin-b6"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="vitamin-b6"
+              />
+              <meter
+                id="vitamin-b6-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="vitamin-b6-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="vitamin-b12-fieldset">
+            <legend id="vitamin-b12-legend">Vitamin B12</legend>
+            <div id="vitamin-b12-div">
+              <label for="vitamin-b12-calculate">Calculate Vitamin B12:</label>
+              <input
+                type="checkbox"
+                name="vitamin-b12-calculate"
+                id="vitamin-b12-calculate"
+                checked
+              />
+              <label id="vitamin-b12-label">Vitamin B12:</label>
+              <input id="vitamin-b12-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="vitamin-b12-input"
+                name="vitamin-b12"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="vitamin-b12"
+              />
+              <meter
+                id="vitamin-b12-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="vitamin-b12-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="folic-acid-fieldset">
+            <legend id="folic-acid-legend">Folic Acid</legend>
+            <div id="folic-acid-div">
+              <label for="folic-acid-calculate">Calculate Folic Acid:</label>
+              <input
+                type="checkbox"
+                name="folic-acid-calculate"
+                id="folic-acid-calculate"
+                checked
+              />
+              <label id="folic-acid-label">Folic Acid:</label>
+              <input id="folic-acid-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="folic-acid-input"
+                name="folic-acid"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="folic-acid"
+              />
+              <meter
+                id="folic-acid-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="folic-acid-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="pantothenic-acid-fieldset">
+            <legend id="pantothenic-acid-legend">Pantothenic Acid</legend>
+            <div id="pantothenic-acid-div">
+              <label for="pantothenic-acid-calculate"
+                >Calculate Pantothenic Acid:</label
+              >
+              <input
+                type="checkbox"
+                name="pantothenic-acid-calculate"
+                id="pantothenic-acid-calculate"
+                checked
+              />
+              <label id="pantothenic-acid-label">Pantothenic Acid:</label>
+              <input
+                id="pantothenic-acid-input"
+                type="number"
+                placeholder="2.5"
+              />
+              <input
+                type="range"
+                id="pantothenic-acid-input"
+                name="pantothenic-acid"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="pantothenic-acid"
+              />
+              <meter
+                id="pantothenic-acid-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="pantothenic-acid-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="biotin-fieldset">
+            <legend id="biotin-legend">Biotin</legend>
+            <div id="biotin-div">
+              <label for="biotin-calculate">Calculate Biotin:</label>
+              <input
+                type="checkbox"
+                name="biotin-calculate"
+                id="biotin-calculate"
+                checked
+              />
+              <label id="biotin-label">Biotin:</label>
+              <input id="biotin-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="biotin-input"
+                name="biotin"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="biotin"
+              />
+              <meter
+                id="biotin-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="biotin-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="choline-fieldset">
+            <legend id="choline-legend">Choline</legend>
+            <div id="choline-div">
+              <label for="choline-calculate">Calculate Choline:</label>
+              <input
+                type="checkbox"
+                name="choline-calculate"
+                id="choline-calculate"
+                checked
+              />
+              <label id="choline-label">Choline:</label>
+              <input id="choline-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="choline-input"
+                name="choline"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="choline"
+              />
+              <meter
+                id="choline-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="choline-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+        </fieldset>
+
+        <fieldset id="minerals-fieldset">
+          <legend id="minerals-legend">Minerals</legend>
+
+          <fieldset id="calcium-fieldset">
+            <legend id="calcium-legend">Calcium</legend>
+            <div id="calcium-div">
+              <label for="calcium-calculate">Calculate Calcium:</label>
+              <input
+                type="checkbox"
+                name="calcium-calculate"
+                id="calcium-calculate"
+                checked
+              />
+              <label id="calcium-label">Calcium:</label>
+              <input id="calcium-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="calcium-input"
+                name="calcium"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="calcium"
+              />
+              <meter
+                id="calcium-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="calcium-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="potassium-fieldset">
+            <legend id="potassium-legend">Potassium</legend>
+            <div id="potassium-div">
+              <label for="potassium-calculate">Calculate Potassium:</label>
+              <input
+                type="checkbox"
+                name="potassium-calculate"
+                id="potassium-calculate"
+                checked
+              />
+              <label id="potassium-label">Potassium:</label>
+              <input id="potassium-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="potassium-input"
+                name="potassium"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="potassium"
+              />
+              <meter
+                id="potassium-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="potassium-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="sodium-fieldset">
+            <legend id="sodium-legend">Sodium</legend>
+            <div id="sodium-div">
+              <label for="sodium-calculate">Calculate Sodium:</label>
+              <input
+                type="checkbox"
+                name="sodium-calculate"
+                id="sodium-calculate"
+                checked
+              />
+              <label id="sodium-label">Sodium:</label>
+              <input id="sodium-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="sodium-input"
+                name="sodium"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="sodium"
+              />
+              <meter
+                id="sodium-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="sodium-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="phosphorus-fieldset">
+            <legend id="phosphorus-legend">Phosphorus</legend>
+            <div id="phosphorus-div">
+              <label for="phosphorus-calculate">Calculate hosphorus:</label>
+              <input
+                type="checkbox"
+                name="phosphorus-calculate"
+                id="phosphorus-calculate"
+                checked
+              />
+              <label id="phosphorus-label">Phosphorus:</label>
+              <input id="phosphorus-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="phosphorus-input"
+                name="phosphorus"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="phosphorus"
+              />
+              <meter
+                id="phosphorus-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="phosphorus-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="chlorine-fieldset">
+            <legend id="chlorine-legend">Chlorine</legend>
+            <div id="chlorine-div">
+              <label for="chlorine-calculate">Calculate Chlorine:</label>
+              <input
+                type="checkbox"
+                name="chlorine-calculate"
+                id="chlorine-calculate"
+                checked
+              />
+              <label id="chlorine-label">Chlorine:</label>
+              <input id="chlorine-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="chlorine-input"
+                name="chlorine"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="chlorine"
+              />
+              <meter
+                id="chlorine-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="chlorine-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="magnesium-fieldset">
+            <legend id="magnesium-legend">Magnesium</legend>
+            <div id="magnesium-div">
+              <label for="magnesium-calculate">Calculate Magnesium:</label>
+              <input
+                type="checkbox"
+                name="magnesium-calculate"
+                id="magnesium-calculate"
+                checked
+              />
+              <label id="magnesium-label">Magnesium:</label>
+              <input id="magnesium-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="magnesium-input"
+                name="magnesium"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="magnesium"
+              />
+              <meter
+                id="magnesium-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="magnesium-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="sulfur-fieldset">
+            <legend id="sulfur-legend">Sulfur</legend>
+            <div id="sulfur-div">
+              <label for="sulfur-calculate">Calculate Sulfur:</label>
+              <input
+                type="checkbox"
+                name="sulfur-calculate"
+                id="sulfur-calculate"
+                checked
+              />
+              <label id="sulfur-label">Sulfur:</label>
+              <input id="sulfur-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="sulfur-input"
+                name="sulfur"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="sulfur"
+              />
+              <meter
+                id="sulfur-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="sulfur-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="iron-fieldset">
+            <legend id="iron-legend">Iron</legend>
+            <div id="iron-div">
+              <label for="iron-calculate">Calculate Iron:</label>
+              <input
+                type="checkbox"
+                name="iron-calculate"
+                id="iron-calculate"
+                checked
+              />
+              <label id="iron-label">Iron:</label>
+              <input id="iron-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="iron-input"
+                name="iron"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="iron"
+              />
+              <meter
+                id="iron-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="iron-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="zinc-fieldset">
+            <legend id="zinc-legend">Zinc</legend>
+            <div id="zinc-div">
+              <label for="zinc-calculate">Calculate Zinc:</label>
+              <input
+                type="checkbox"
+                name="zinc-calculate"
+                id="zinc-calculate"
+                checked
+              />
+              <label id="zinc-label">Zinc:</label>
+              <input id="zinc-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="zinc-input"
+                name="zinc"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="zinc"
+              />
+              <meter
+                id="zinc-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="zinc-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="manganese-fieldset">
+            <legend id="manganese-legend">Manganese</legend>
+            <div id="manganese-div">
+              <label for="manganese-calculate">Calculate Manganese:</label>
+              <input
+                type="checkbox"
+                name="manganese-calculate"
+                id="manganese-calculate"
+                checked
+              />
+              <label id="manganese-label">Manganese:</label>
+              <input id="manganese-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="manganese-input"
+                name="manganese"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="manganese"
+              />
+              <meter
+                id="manganese-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="manganese-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="copper-fieldset">
+            <legend id="copper-legend">Copper</legend>
+            <div id="copper-div">
+              <label for="copper-calculate">Calculate Copper:</label>
+              <input
+                type="checkbox"
+                name="copper-calculate"
+                id="copper-calculate"
+                checked
+              />
+              <label id="copper-label">Copper:</label>
+              <input id="copper-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="copper-input"
+                name="copper"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="copper"
+              />
+              <meter
+                id="copper-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="copper-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="fluorine-fieldset">
+            <legend id="fluorine-legend">Fluorine</legend>
+            <div id="fluorine-div">
+              <label for="fluorine-calculate">Calculate Fluorine:</label>
+              <input
+                type="checkbox"
+                name="fluorine-calculate"
+                id="fluorine-calculate"
+                checked
+              />
+              <label id="fluorine-label">Fluorine:</label>
+              <input id="fluorine-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="fluorine-input"
+                name="fluorine"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="fluorine"
+              />
+              <meter
+                id="fluorine-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="fluorine-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="iodine-fieldset">
+            <legend id="iodine-legend">Iodine</legend>
+            <div id="iodine-div">
+              <label for="iodine-calculate">Calculate Iodine:</label>
+              <input
+                type="checkbox"
+                name="iodine-calculate"
+                id="iodine-calculate"
+                checked
+              />
+              <label id="iodine-label">Iodine:</label>
+              <input id="iodine-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="iodine-input"
+                name="iodine"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="iodine"
+              />
+              <meter
+                id="iodine-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="iodine-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="chromium-fieldset">
+            <legend id="chromium-legend">Chromium</legend>
+            <div id="chromium-div">
+              <label for="chromium-calculate">Calculate Chromium:</label>
+              <input
+                type="checkbox"
+                name="chromium-calculate"
+                id="chromium-calculate"
+                checked
+              />
+              <label id="chromium-label">Chromium:</label>
+              <input id="chromium-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="chromium-input"
+                name="chromium"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="chromium"
+              />
+              <meter
+                id="chromium-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="chromium-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="molybdenum-fieldset">
+            <legend id="molybdenum-legend">Molybdenum</legend>
+            <div id="molybdenum-div">
+              <label for="molybdenum-calculate">Calculate Molybdenum:</label>
+              <input
+                type="checkbox"
+                name="molybdenum-calculate"
+                id="molybdenum-calculate"
+                checked
+              />
+              <label id="molybdenum-label">Molybdenum:</label>
+              <input id="molybdenum-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="molybdenum-input"
+                name="molybdenum"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="molybdenum"
+              />
+              <meter
+                id="molybdenum-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="molybdenum-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="selenium-fieldset">
+            <legend id="selenium-legend">Selenium</legend>
+            <div id="selenium-div">
+              <label for="selenium-calculate">Calculate Selenium:</label>
+              <input
+                type="checkbox"
+                name="selenium-calculate"
+                id="selenium-calculate"
+                checked
+              />
+              <label id="selenium-label">Selenium:</label>
+              <input id="selenium-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="selenium-input"
+                name="selenium"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="selenium"
+              />
+              <meter
+                id="selenium-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="selenium-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="arsenic-fieldset">
+            <legend id="arsenic-legend">Arsenic</legend>
+            <div id="arsenic-div">
+              <label for="arsenic-calculate">Calculate Arsenic:</label>
+              <input
+                type="checkbox"
+                name="arsenic-calculate"
+                id="arsenic-calculate"
+                checked
+              />
+              <label id="arsenic-label">Arsenic:</label>
+              <input id="arsenic-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="arsenic-input"
+                name="arsenic"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="arsenic"
+              />
+              <meter
+                id="arsenic-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="arsenic-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="boron-fieldset">
+            <legend id="boron-legend">Boron</legend>
+            <div id="boron-div">
+              <label for="boron-calculate">Calculate Boron:</label>
+              <input
+                type="checkbox"
+                name="boron-calculate"
+                id="boron-calculate"
+                checked
+              />
+              <label id="boron-label">Boron:</label>
+              <input id="boron-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="boron-input"
+                name="boron"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="boron"
+              />
+              <meter
+                id="boron-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="boron-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="nickel-fieldset">
+            <legend id="nickel-legend">Nickel</legend>
+            <div id="nickel-div">
+              <label for="nickel-calculate">Calculate Nickel:</label>
+              <input
+                type="checkbox"
+                name="nickel-calculate"
+                id="nickel-calculate"
+                checked
+              />
+              <label id="nickel-label">Nickel:</label>
+              <input id="nickel-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="nickel-input"
+                name="nickel"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="nickel"
+              />
+              <meter
+                id="nickel-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="nickel-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="silicon-fieldset">
+            <legend id="silicon-legend">Silicon</legend>
+            <div id="silicon-div">
+              <label for="silicon-calculate">Calculate Silicon:</label>
+              <input
+                type="checkbox"
+                name="silicon-calculate"
+                id="silicon-calculate"
+                checked
+              />
+              <label id="silicon-label">Silicon:</label>
+              <input id="silicon-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="silicon-input"
+                name="silicon"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="silicon"
+              />
+              <meter
+                id="silicon-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="silicon-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="tin-fieldset">
+            <legend id="tin-legend">Tin</legend>
+            <div id="tin-div">
+              <label for="tin-calculate">Calculate Tin:</label>
+              <input
+                type="checkbox"
+                name="tin-calculate"
+                id="tin-calculate"
+                checked
+              />
+              <label id="tin-label">Tin:</label>
+              <input id="tin-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="tin-input"
+                name="tin"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="tin"
+              />
+              <meter
+                id="tin-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="tin-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="anadium-fieldset">
+            <legend id="anadium-legend">Anadium</legend>
+            <div id="anadium-div">
+              <label for="anadium-calculate">Calculate Anadium:</label>
+              <input
+                type="checkbox"
+                name="anadium-calculate"
+                id="anadium-calculate"
+                checked
+              />
+              <label id="anadium-label">Anadium:</label>
+              <input id="anadium-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="anadium-input"
+                name="anadium"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="anadium"
+              />
+              <meter
+                id="anadium-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="anadium-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+
+          <fieldset id="lithium-fieldset">
+            <legend id="lithium-legend">Lithium</legend>
+            <div id="lithium-div">
+              <label for="lithium-calculate">Calculate Lithium:</label>
+              <input
+                type="checkbox"
+                name="lithium-calculate"
+                id="lithium-calculate"
+                checked
+              />
+              <label id="lithium-label">Lithium:</label>
+              <input id="lithium-input" type="number" placeholder="2.5" />
+              <input
+                type="range"
+                id="lithium-input"
+                name="lithium"
+                value="1700"
+                min="0.5"
+                max="6.0"
+                step="0.1"
+                autocomplete="lithium"
+              />
+              <meter
+                id="lithium-meter"
+                min="0.5"
+                max="6.0"
+                low="1"
+                high="4.0"
+                optimum="2.5"
+                value="2.5"
+              >
+                2.5 Liters
+              </meter>
+              <output id="lithium-output">2.5 Liters</output>
+            </div>
+          </fieldset>
+        </fieldset>
       </fieldset>
 
       <fieldset id="submit-field">
